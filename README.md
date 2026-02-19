@@ -151,6 +151,11 @@ Near-term:
 	- `auto`: try sitemap when available; continue with normal crawling if unavailable/invalid.
 	- `always`: require sitemap discovery and warn/error if sitemap cannot be used.
 	- `off`: disable sitemap seeding entirely.
+- Add optional archive packaging mode:
+	- Proposed CLI: `--archive yes|only|off` (default: `off`).
+	- `off`: no archive zip output.
+	- `yes`: keep normal output folder content and also create `output/async-web-archive.zip`.
+	- `only`: create `output/async-web-archive.zip`, then remove generated output content while keeping the zip file.
 - Optional deterministic mapping strategy for query pages, e.g. `/sok.html?query=test` -> `/sok_query-test.html`.
 - Add regression tests for shim injection text correctness (escaping/syntax safety).
 
