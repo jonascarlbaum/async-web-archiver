@@ -7,6 +7,9 @@ Playwright-based offline archiver for dynamic sites (HTML/CSS/JS/assets + API re
 
 This project is intended to support archive workflows similar to the requirements often seen in Swedish public-sector preservation contexts (including Riksarkivet-oriented delivery expectations), where reproducibility and long-term usability are central.
 
+Reference context:
+- Riksarkivet guidance for websites: https://riksarkivet.se/resurser/webbplatser
+
 ## Background and archive context
 The tool is designed with practical archive-ingest concerns in mind:
 - Keep records usable without live network dependencies.
@@ -15,6 +18,15 @@ The tool is designed with practical archive-ingest concerns in mind:
 - Make capture behavior explicit and auditable (what was fetched, rewritten, and replayed).
 
 In practice, this aligns with common expectations in state/archive environments: records should remain interpretable over time, with clear provenance and minimal reliance on third-party services that can change or disappear.
+
+How this tool supports that direction:
+- Produces offline-usable output (HTML, assets, API replay) to reduce live dependency risk.
+- Rewrites links/paths for deterministic local playback across nested page depths.
+- Captures and logs replayed API resources to improve traceability of rendered state.
+- Prefers explicit, auditable crawl/rewrite configuration over hidden runtime behavior.
+
+Important note:
+- This tool can help align technical output with archive-oriented practices, but it does not by itself guarantee legal/regulatory compliance for any specific authority submission.
 
 Why this matters beyond Sweden:
 - National/state archives in many jurisdictions face similar preservation constraints.
