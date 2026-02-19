@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "scripts": {
+    "test": "node lib/assetManager.test.js && node lib/assetProcessor.test.js && node lib/crawlerUtils.test.js && node lib/fileUtils.test.js && node lib/replaceEngine.test.js && node lib/urlUtils.test.js && node awa.test.js"
+  },
+  "dependencies": {
+    "commander": "^14.0.3",
+    "playwright": "^1.58.2"
+  }
+}

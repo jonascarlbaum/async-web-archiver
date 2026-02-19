@@ -1,0 +1,9 @@
+*.html
+sitemap.xml
+errors.log
+urls.txt
+**/assets/**/*
+**/static/**/*
+*output*/**/*
+node_modules
+!/lib
