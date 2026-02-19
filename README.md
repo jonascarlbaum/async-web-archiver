@@ -21,6 +21,51 @@ Why this matters beyond Sweden:
 ## Purpose
 Archive modern sites so they are viewable from local files (`file://`) with minimal runtime breakage.
 
+## Install
+Prerequisites:
+- Node.js 18+
+- npm
+
+Setup:
+```sh
+git clone <your-fork-or-repo-url>
+cd playwright-archiver
+npm install
+```
+
+Optional sanity check:
+```sh
+npm test
+```
+
+## Usage (quick start)
+Minimal run:
+```sh
+node awa.js --start-url https://example.local/ --out-dir ./output --force
+```
+
+Typical run with replacement and practical limits:
+```sh
+node awa.js \
+	--start-url https://example.local/ \
+	--out-dir ./output \
+	--replace "example.local::example.se" \
+	--max-pages 5000 \
+	--concurrency 3 \
+	--delay-ms 200 \
+	--force
+```
+
+Unlimited crawl until queue exhaustion:
+```sh
+node awa.js --start-url https://example.local/ --out-dir ./output --ignore-max --force
+```
+
+Notes:
+- Output cleanup is destructive for `--out-dir`.
+- Use `--force` in automation/CI to skip confirmation prompt.
+- Open generated pages directly from `output/` with `file://`.
+
 ## Current state (implemented)
 - Crawls in-scope pages from `--start-url` with configurable limits/concurrency.
 - Saves HTML pages and static assets under `output/` and `output/assets/`.
@@ -113,10 +158,12 @@ Mid-term:
 - Improve discovery of form-driven routes and configurable query-parameter capture.
 - Add targeted smoke tests for nested-depth helper behavior in generated HTML.
 - Expand replay diagnostics (clearer logging for path rewrites and misses).
+- Evaluate publishing as an npm package (for example `npx`/global CLI use) once CLI surface is stable.
 
 Unknown / future investigation:
 - Best generic strategy for preserving highly dynamic application state across offline sessions.
 - How far to normalize/minify generated output vs. keeping source fidelity for archives.
+- Packaging/release model (single-file script vs maintained npm package) based on maintainer capacity and user demand.
 
 ## Safety notes
 - Cleanup is destructive for `--out-dir`.
