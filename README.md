@@ -1,5 +1,8 @@
 # async-web-archiver (`awa.js`)
 
+[![CI](https://github.com/jonascarlbaum/async-web-archiver/actions/workflows/ci.yml/badge.svg)](https://github.com/jonascarlbaum/async-web-archiver/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Playwright-based offline archiver for dynamic sites (HTML/CSS/JS/assets + API replay), with link/path rewriting and archive-oriented output.
 
 This project is intended to support archive workflows similar to the requirements often seen in Swedish public-sector preservation contexts (including Riksarkivet-oriented delivery expectations), where reproducibility and long-term usability are central.
